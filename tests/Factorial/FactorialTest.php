@@ -42,7 +42,7 @@ class FactorialTest extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
-    public function testNonNegative()
+    public function testGuardNonNegative()
     {
         $this->setExpectedException('\InvalidArgumentException');
         $this->factorial->calculate(-1);
@@ -54,7 +54,8 @@ class FactorialTest extends PHPUnit_Framework_TestCase
      */
     public function testCalculate($data, $expected)
     {
-        $this->assertEquals($expected, $this->factorial->calculate($data));
+        $actual = $this->factorial->calculate($data);
+        $this->assertTrue($expected === $actual);
     }
 
     /**
