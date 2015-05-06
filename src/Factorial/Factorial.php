@@ -16,7 +16,7 @@ class Factorial implements FactorialInterface
         $this->guardInteger($number);
         $this->guardNonNegative($number);
 
-        return $number < 2 ? 1 : \bcmul($number, $this->calculate(--$number));
+        return $number < 2 ? 1 : bcmul($number, $this->calculate(--$number));
     }
 
     /**
